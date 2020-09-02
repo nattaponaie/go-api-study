@@ -1,0 +1,54 @@
+// Slice
+var s []int
+s = []int{99, 98}
+fmt.Println(s)
+
+s2 := []string{"my", "se"}
+fmt.Println(s2)
+
+s3 := make([]string, 5)
+s3[0] = "second"
+fmt.Println(s3)
+
+s3 = append(s3, "a", "b")
+fmt.Println(s3)
+
+s3 = append(s3[:0], s3[1:]...) // delete index 0
+fmt.Println(s3)
+fmt.Println(len(s3))
+fmt.Println("s3: ", s3[0])
+
+s3 = append(s3, "wqe")
+fmt.Println(s3)
+fmt.Println(s3[4:7])
+
+//g. Get the capacity of the current slice:
+fmt.Println("Length: ", len(s3))
+fmt.Println("Capacity: ", cap(s3))
+
+d := make([]string, len(s3))
+copy(d, s3)
+fmt.Println("This is the new slice: ", d)
+
+// range
+fmt.Println("--- s3 value range ---")
+for _, value := range s3 {
+  fmt.Println(value)
+}
+
+// forloop
+fmt.Println("--- s3 value forloop ---")
+for i := 0; i < len(s3); i++ {
+  fmt.Println(s3[i])
+}
+
+// nested slice
+nested := [][]int{}
+for i := 0; i < 3; i++ {
+  out := make([]int, 0, 4)
+  for j := 0; j < 4; j++ {
+    out = append(out, j)
+  }
+  nested = append(nested, out)
+}
+fmt.Println(nested)

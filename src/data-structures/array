@@ -1,0 +1,7 @@
+
+var arrInt [99]string
+arrInt[0] = "Pom"
+fmt.Println(arrInt)
+
+arr2 := [10]int{2, 1, 3, 49}
+fmt.Println(arr2[0])
