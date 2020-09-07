@@ -26,6 +26,15 @@ fmt.Println(s3[4:7])
 fmt.Println("Length: ", len(s3))
 fmt.Println("Capacity: ", cap(s3))
 
+a := []string{"a", "b", "c", "d", "e"}
+b := a[1:2]
+c := a[2:3]
+d := a[2:]
+
+fmt.Println(b)
+fmt.Println(c)
+fmt.Println(d)
+
 d := make([]string, len(s3))
 copy(d, s3)
 fmt.Println("This is the new slice: ", d)
