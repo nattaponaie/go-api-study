@@ -2,31 +2,44 @@ package main
 
 import "fmt"
 
+func plus(a int, b int) int {
+	return a + b
+}
+
+func firstAndLast(str string) (string, string) {
+	return string(str[0]), string(str[1])
+}
+
+func rectangle(width int, height int) (w int, h int) {
+	w = width
+	h = height
+	return w, h
+}
+
+// Variadic Functions
+func sum(numbers ...int) int {
+	fmt.Println(numbers)
+	total := 0
+	for _, value := range numbers {
+		total += value
+	}
+	return total
+}
+
+func init() {
+	fmt.Println("Init main...")
+}
+
 func main() {
-	type Person struct {
-		name     string
-		lastname string
-		age      int
-		fuck     []int //Slice
-		suck     map[string]int
-	}
+	res1 := plus(1, 2)
+	fmt.Println(res1)
 
-	p1 := Person{
-		name:     "Foo",
-		lastname: "Bar",
-		age:      20,
-		fuck:     []int{2, 1},
-		suck:     map[string]int{},
-	}
+	res201, res202 := firstAndLast("My name is Foo")
+	fmt.Println(res201, res202)
 
-	fmt.Println(p1)
-	p1.suck["first"] = 92
+	res301, res302 := rectangle(10, 20)
+	fmt.Println(res301, res302)
 
-	for _, value := range p1.fuck {
-		fmt.Println(value)
-	}
-
-	for key, value := range p1.suck {
-		fmt.Println(key, value)
-	}
+	res4 := sum(12, 20, 1, 2)
+	fmt.Println(res4)
 }
